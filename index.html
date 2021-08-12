@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stock en verdulería</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const listaStock = ["Manzana", "Pera", "Naranja", "Banana", "Kiwi"];
+        const listaSinStock = ["Durazno", "Cereza", "Anana"];
+
+        function MyDiv(props) {
+            return (<div>
+                <MyH1/>
+                <MyUl lista={listaStock}/>
+                <MyH2/>
+                <MyUl lista={listaSinStock}/>
+            </div>)
+        }
+
+        function MyH1() {
+            return (<h1>Lista de Productos en stock:</h1>);
+        }
+
+        function MyUl(props) {
+            return (
+                <ul>
+                    {props.lista.map((elem, index) => (
+                        <MyLi key={index}>{elem}</MyLi>
+                    ))}
+                </ul>
+            );
+        }
+
+        function MyLi(props) {
+            return (<li>{props.children}</li>);
+        }
+
+        function MyH2() {
+            return (<h2>Productos en falta:</h2>);
+        }
+
+        ReactDOM.render(<MyDiv/>, document.querySelector("#root"));
+    </script>
+
+    <!-- <h1>Lista de Productos en stock:</h1>
+        <ul>
+          <li>Manzana</li>
+          <li>Pera</li>
+          <li>Naranja</li>
+          <li>Banana</li>
+          <li>Kiwi</li>
+        </ul>
+        <h2>Productos en falta:</h2>
+        <ul>
+          <li>Durazno</li>
+          <li>Cereza</li>
+          <li>Anana</li>
+        </ul>-->
+
+
+
+</body>
+
+</html>
